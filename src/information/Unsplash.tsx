@@ -1,20 +1,22 @@
-import React, { useState } from "react";
+import { Fragment } from "react";
+import useSWR from "swr";
 
-const base = "https://api.stackexchange.com/";
-const stackOverflowUser = "12458952";
-const pathURL = `2.3/users/${stackOverflowUser}?order=desc&sort=reputation&site=stackoverflow`;
+import * as Constants from "../Constants";
 
-export default function Unsplash() {
-  const url = base + pathURL;
-  const [totalReputation, setTotalReputation] = useState<number>();
+export default function StackOverflow() {
+  const { data, error } = useSWR(
+    Constants.UNSPLASH_USER_DATA,
+    Constants.FETCHER
+  );
 
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("SUCCESS!", data);
-      setTotalReputation(data.items[0].reputation);
-    })
-    .catch((error) => console.log("ERROR!", error));
+  if (error) console.log("ERROR!");
+  if (!data) console.log("LOADING!");
 
-  return <div>StackOverflow total reputation: {totalReputation}</div>;
+  return (
+    <Fragment>
+      <h1>Unsplash</h1>
+      <p>Views: {data?.views?.total}</p>
+      <p>Downloads: {data?.downloads?.total}</p>
+    </Fragment>
+  );
 }
