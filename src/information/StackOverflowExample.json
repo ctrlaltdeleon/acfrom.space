@@ -1,0 +1,27 @@
+{
+  "items": [
+    {
+      "badge_counts": { "bronze": 13, "silver": 0, "gold": 0 },
+      "account_id": 14284834,
+      "is_employee": false,
+      "last_modified_date": 1628923800,
+      "last_access_date": 1659404880,
+      "reputation_change_year": 52,
+      "reputation_change_quarter": 0,
+      "reputation_change_month": 0,
+      "reputation_change_week": 0,
+      "reputation_change_day": 0,
+      "reputation": 194,
+      "creation_date": 1536127455,
+      "user_type": "registered",
+      "user_id": 12458952,
+      "website_url": "",
+      "link": "https://stackoverflow.com/users/12458952/acfromspace",
+      "profile_image": "https://i.stack.imgur.com/ES4w9.jpg?s=256&g=1",
+      "display_name": "acfromspace"
+    }
+  ],
+  "has_more": false,
+  "quota_max": 300,
+  "quota_remaining": 229
+}
