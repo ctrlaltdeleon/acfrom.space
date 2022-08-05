@@ -3,8 +3,12 @@
 
 export const FETCHER = (url: string) => fetch(url).then((res) => res.json());
 
+// Riot Games (need dev account)
+// Doc: https://developer.riotgames.com/docs/lol
+
+export const RIOT_GAMES_CURRENT_SUMMONER_RANKS = `https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/${process.env.REACT_APP_RIOT_GAMES_API_KEY}`;
+
 // StackOverflow (open)
-// API Call: https://api.stackexchange.com/2.3/users/12458952?order=desc&sort=reputation&site=stackoverflow
 // Doc: https://api.stackexchange.com/docs/users-by-ids
 
 export const STACKOVERFLOW_USER_ID = "12458952";
@@ -12,7 +16,6 @@ export const STACKOVERFLOW_BASE_URL = "https://api.stackexchange.com/";
 export const STACKOVERFLOW_USER_DATA = `${STACKOVERFLOW_BASE_URL}2.3/users/${STACKOVERFLOW_USER_ID}?order=desc&sort=reputation&site=stackoverflow`;
 
 // Unsplash (need dev account)
-// API Call: https://api.unsplash.com/users/acfromspace/statistics?client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}
 // Doc: https://unsplash.com/documentation#get-a-users-public-profile
 
 export const UNSPLASH_USER_ID = "acfromspace";
@@ -20,7 +23,6 @@ export const UNSPLASH_BASE_URL = "https://api.unsplash.com/";
 export const UNSPLASH_USER_DATA = `${UNSPLASH_BASE_URL}users/${UNSPLASH_USER_ID}/statistics?client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}`;
 
 // YouTube (need dev account)
-// API Call: https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=UC8esh-JWOUQFYYSHZw-3e3w&key=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}
 // Doc: https://console.cloud.google.com/apis/dashboard?project=raiden-yeet
 // Doc: https://developers.google.com/youtube/v3/docs/channels
 
