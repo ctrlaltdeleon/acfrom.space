@@ -1,0 +1,49 @@
+{
+  "kind": "youtube#channelListResponse",
+  "etag": "aIzC0xHT-wb86xaNoB8HaE3CisQ",
+  "pageInfo": {
+    "totalResults": 1,
+    "resultsPerPage": 5
+  },
+  "items": [
+    {
+      "kind": "youtube#channel",
+      "etag": "CUaEVFmQBVxt-gTIarJKfivCQ_M",
+      "id": "UC8esh-JWOUQFYYSHZw-3e3w",
+      "snippet": {
+        "title": "acfromspace",
+        "description": "🌌",
+        "customUrl": "acfromspace",
+        "publishedAt": "2008-11-01T01:04:13Z",
+        "thumbnails": {
+          "default": {
+            "url": "https://yt3.ggpht.com/Te_yAgm7WJCMy7L_y55IfUXhWZlCfZnrUeOtnOEbr15XFL59IdMWa6dy95gNEk3JeiUlPwcSJw=s88-c-k-c0x00ffffff-no-rj",
+            "width": 88,
+            "height": 88
+          },
+          "medium": {
+            "url": "https://yt3.ggpht.com/Te_yAgm7WJCMy7L_y55IfUXhWZlCfZnrUeOtnOEbr15XFL59IdMWa6dy95gNEk3JeiUlPwcSJw=s240-c-k-c0x00ffffff-no-rj",
+            "width": 240,
+            "height": 240
+          },
+          "high": {
+            "url": "https://yt3.ggpht.com/Te_yAgm7WJCMy7L_y55IfUXhWZlCfZnrUeOtnOEbr15XFL59IdMWa6dy95gNEk3JeiUlPwcSJw=s800-c-k-c0x00ffffff-no-rj",
+            "width": 800,
+            "height": 800
+          }
+        },
+        "localized": {
+          "title": "acfromspace",
+          "description": "🌌"
+        },
+        "country": "US"
+      },
+      "statistics": {
+        "viewCount": "10084989",
+        "subscriberCount": "4830",
+        "hiddenSubscriberCount": false,
+        "videoCount": "133"
+      }
+    }
+  ]
+}
