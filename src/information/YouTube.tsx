@@ -1,22 +1,21 @@
 import { Fragment } from "react";
+
+import * as API from "../library/api";
 import useSWR from "swr";
 
-import * as Constants from "../Routes";
-
 export default function YouTube() {
-  const { data, error } = useSWR(
-    Constants.YOUTUBE_USER_DATA,
-    Constants.FETCHER
-  );
+  const { data } = useSWR(API.YOUTUBE_USER_DATA, API.FETCHER);
 
-  if (error) console.log("ERROR!");
+  const subscribers: number = data?.items[0]?.statistics?.subscriberCount;
+  const videos: number = data?.items[0]?.statistics?.videoCount;
+  const views: number = data?.items[0]?.statistics?.viewCount;
 
   return (
     <Fragment>
       <h1>YouTube</h1>
-      <p>Subscribers: {data?.items[0]?.statistics?.subscriberCount}</p>
-      <p>Videos made: {data?.items[0]?.statistics?.videoCount}</p>
-      <p>Video views: {data?.items[0]?.statistics?.viewCount}</p>
+      <p>Subscribers: {subscribers}</p>
+      <p>Videos made: {videos}</p>
+      <p>Video views: {views}</p>
     </Fragment>
   );
 }

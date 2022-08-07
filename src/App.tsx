@@ -1,8 +1,7 @@
-import StackOverflow from "./information/StackOverflow";
-import Unsplash from "./information/Unsplash";
-import YouTube from "./information/YouTube";
-
-import TopTracks from "./information/TopTracks";
+import StackOverflow from "./information/stack-overflow";
+import Unsplash from "./information/unsplash";
+import YouTube from "./information/youtube";
+import Spotify from "./spotify/spotify";
 
 function App() {
   return (
@@ -11,7 +10,7 @@ function App() {
       <StackOverflow />
       <Unsplash />
       <YouTube />
-      <TopTracks />
+      <Spotify />
     </div>
   );
 }

@@ -10,7 +10,7 @@ export const RIOT_GAMES_CURRENT_SUMMONER_RANKS = `https://na1.api.riotgames.com/
 
 // Spotify (need dev account)
 
-export const SPOTIFY_USER_DATA = `https://api.spotify.com/v1/me/top/tracks?limit=5`;
+export const SPOTIFY_TOP_5_TRACKS = `https://api.spotify.com/v1/me/top/tracks?limit=5`;
 
 // StackOverflow (open)
 // Doc: https://api.stackexchange.com/docs/users-by-ids
