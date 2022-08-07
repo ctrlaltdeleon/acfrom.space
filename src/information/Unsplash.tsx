@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import useSWR from "swr";
 
-import * as Constants from "../Constants";
+import * as Constants from "../Routes";
 
 export default function StackOverflow() {
   const { data, error } = useSWR(
@@ -10,7 +10,6 @@ export default function StackOverflow() {
   );
 
   if (error) console.log("ERROR!");
-  if (!data) console.log("LOADING!");
 
   return (
     <Fragment>

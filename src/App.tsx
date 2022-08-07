@@ -2,6 +2,8 @@ import StackOverflow from "./information/StackOverflow";
 import Unsplash from "./information/Unsplash";
 import YouTube from "./information/YouTube";
 
+import TopTracks from "./information/TopTracks";
+
 function App() {
   return (
     <div className="App">
@@ -9,6 +11,7 @@ function App() {
       <StackOverflow />
       <Unsplash />
       <YouTube />
+      <TopTracks />
     </div>
   );
 }

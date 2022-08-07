@@ -8,6 +8,10 @@ export const FETCHER = (url: string) => fetch(url).then((res) => res.json());
 
 export const RIOT_GAMES_CURRENT_SUMMONER_RANKS = `https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/${process.env.REACT_APP_RIOT_GAMES_API_KEY}`;
 
+// Spotify (need dev account)
+
+export const SPOTIFY_USER_DATA = `https://api.spotify.com/v1/me/top/tracks?limit=5`;
+
 // StackOverflow (open)
 // Doc: https://api.stackexchange.com/docs/users-by-ids
 
