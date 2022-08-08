@@ -10,7 +10,7 @@ export default function StackOverflow() {
 
   return (
     <Fragment>
-      <h1>StackOverflow</h1>
+      <h2>StackOverflow</h2>
       <p>Reputation: {reputation}</p>
     </Fragment>
   );

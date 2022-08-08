@@ -9,6 +9,7 @@ export const FETCHER = (url: string) => fetch(url).then((res) => res.json());
 export const RIOT_GAMES_CURRENT_SUMMONER_RANKS = `https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/${process.env.REACT_APP_RIOT_GAMES_API_KEY}`;
 
 // Spotify (need dev account)
+// This one was really annoying
 
 export const SPOTIFY_TOP_5_TRACKS = `https://api.spotify.com/v1/me/top/tracks?limit=5`;
 

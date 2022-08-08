@@ -1,3 +1,5 @@
+import { Fragment, useEffect, useState } from "react";
+
 import * as API from "../library/api";
 
 const client_id = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
@@ -5,7 +7,6 @@ const client_secret = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
 const refresh_token = process.env.REACT_APP_SPOTIFY_REFRESH_TOKEN;
 
 const basic = btoa(`${client_id}:${client_secret}`);
-const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks`;
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
 
 const getAccessToken = async () => {
@@ -24,7 +25,7 @@ const getAccessToken = async () => {
   return response.json();
 };
 
-export const getTop5Tracks = async () => {
+const getTop5Tracks = async () => {
   const { access_token } = await getAccessToken();
   const response = await fetch(API.SPOTIFY_TOP_5_TRACKS, {
     headers: {
@@ -39,3 +40,27 @@ export const getTop5Tracks = async () => {
   }));
   return tracks;
 };
+
+export default function Spotify() {
+  const [tracks, setTracks] = useState<any>([]);
+
+  useEffect(() => {
+    const response = getTop5Tracks();
+    response.then((result) => {
+      setTracks(result);
+    });
+  }, []);
+
+  return (
+    <Fragment>
+      <h2>Top 5 Spotify Tracks</h2>
+      {tracks.map((track: any, index: any) => (
+        <Fragment key={index}>
+          <p>
+            {index + 1} "{track.title}" by {track.artist}
+          </p>
+        </Fragment>
+      ))}
+    </Fragment>
+  );
+}

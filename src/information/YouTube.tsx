@@ -12,7 +12,7 @@ export default function YouTube() {
 
   return (
     <Fragment>
-      <h1>YouTube</h1>
+      <h2>YouTube</h2>
       <p>Subscribers: {subscribers}</p>
       <p>Videos made: {videos}</p>
       <p>Video views: {views}</p>

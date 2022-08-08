@@ -11,7 +11,7 @@ export default function StackOverflow() {
 
   return (
     <Fragment>
-      <h1>Unsplash</h1>
+      <h2>Unsplash</h2>
       <p>Downloads: {downloads}</p>
       <p>Views: {views}</p>
     </Fragment>
