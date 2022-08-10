@@ -1,0 +1,32 @@
+[
+  {
+    "leagueId": "6823dcf1-b9f7-4436-b8c2-a91671397825",
+    "queueType": "RANKED_FLEX_SR",
+    "tier": "GOLD",
+    "rank": "I",
+    "summonerId": "i9XfHa3-PcT6SFzN-NFPrXJ4wbhhLYU9slHkn8kVp6EPTHE",
+    "summonerName": "DinoRAWR",
+    "leaguePoints": 72,
+    "wins": 75,
+    "losses": 73,
+    "veteran": false,
+    "inactive": false,
+    "freshBlood": false,
+    "hotStreak": false
+  },
+  {
+    "leagueId": "c553dd57-302c-4f8e-bbb8-55acf14a4d05",
+    "queueType": "RANKED_SOLO_5x5",
+    "tier": "PLATINUM",
+    "rank": "IV",
+    "summonerId": "i9XfHa3-PcT6SFzN-NFPrXJ4wbhhLYU9slHkn8kVp6EPTHE",
+    "summonerName": "DinoRAWR",
+    "leaguePoints": 40,
+    "wins": 61,
+    "losses": 61,
+    "veteran": false,
+    "inactive": false,
+    "freshBlood": false,
+    "hotStreak": false
+  }
+]

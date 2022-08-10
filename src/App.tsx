@@ -1,4 +1,5 @@
 import LeagueOfLegends from "./information/league-of-legends";
+import LeagueOfLegendsMastery from "./information/league-of-legends-mastery";
 import StackOverflow from "./information/stack-overflow";
 import Unsplash from "./information/unsplash";
 import YouTube from "./information/youtube";
@@ -9,6 +10,7 @@ function App() {
     <div className="App">
       hi this is andrew's website
       <LeagueOfLegends />
+      <LeagueOfLegendsMastery />
       <StackOverflow />
       <Unsplash />
       <YouTube />

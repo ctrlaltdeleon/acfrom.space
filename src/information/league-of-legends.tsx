@@ -1,23 +1,17 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment } from "react";
 
 import * as API from "../library/api";
-
-const getCurrentSummonerRanks = async () => {
-  const response = await fetch(API.RIOT_GAMES_CURRENT_SUMMONER_RANKS);
-  return response.json();
-};
+import useSWR from "swr";
 
 export default function LeagueOfLegends() {
-  const [soloQueueRank, setSoloQueueRank] = useState<string>("");
-  const [flexQueueRank, setFlexQueueRank] = useState<string>("");
+  const { data } = useSWR(API.RIOT_GAMES_CURRENT_SUMMONER_RANKS, API.FETCHER);
 
-  useEffect(() => {
-    const response = getCurrentSummonerRanks();
-    response.then((result) => {
-      setSoloQueueRank(`${result[0]?.tier} ${result[0]?.rank}`);
-      setFlexQueueRank(`${result[1]?.tier} ${result[1]?.rank}`);
-    });
-  }, []);
+  console.log("ac*** my ranks are switching", data);
+
+  // need to check data[?].queueType before processing
+
+  const soloQueueRank: string = data ? `${data[0]?.tier} ${data[0]?.rank}` : "";
+  const flexQueueRank: string = data ? `${data[1]?.tier} ${data[1]?.rank}` : "";
 
   return (
     <Fragment>
