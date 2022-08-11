@@ -34,3 +34,8 @@ export type YouTube = {
   subscriberCount: number;
   viewCount: number;
 };
+
+export type Champion = {
+  key: string;
+  name: string;
+};
