@@ -14,9 +14,11 @@ export default function LeagueOfLegendsMastery() {
 
   return (
     <Fragment>
-      <p>Favorite champion: {favoriteChampions[0].name}</p>
-      <p>2nd Favorite champion: {favoriteChampions[1].name}</p>
-      <p>3rd Favorite champion: {favoriteChampions[2].name}</p>
+      <p>Favorite champion: {favoriteChampions[0]?.name}</p>
+      <p>2nd Favorite champion: {favoriteChampions[1]?.name}</p>
+      <p>3rd Favorite champion: {favoriteChampions[2]?.name}</p>
+      <p>4th Favorite champion: {favoriteChampions[3]?.name}</p>
+      <p>5th Favorite champion: {favoriteChampions[4]?.name}</p>
     </Fragment>
   );
 }

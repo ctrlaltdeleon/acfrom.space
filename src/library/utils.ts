@@ -1,7 +1,5 @@
 import * as API from "../library/api";
 
-import { Champion } from "./types";
-
 /**
  * Latest version which as at index 0.
  *
@@ -35,7 +33,7 @@ const getChampions = async () => {
  */
 export const getChampionMasteries = async () => {
   let championMasteries = [];
-  let amountOfChampions = 3;
+  let amountOfChampions = 5;
   const res = await fetch(API.RIOT_GAMES_SUMMONER_MASTERY);
   const masteryData = await res.json();
   const championData = await getChampions();
