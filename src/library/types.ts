@@ -39,3 +39,9 @@ export type Champion = {
   key: string;
   name: string;
 };
+
+export type ChampionMastery = {
+  name: string;
+  title: string;
+  championPoints: number;
+};

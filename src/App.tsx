@@ -1,8 +1,8 @@
-import LeagueOfLegendsMastery from "./information/league-of-legends-mastery";
-import StackOverflow from "./information/stack-overflow";
-import Unsplash from "./information/unsplash";
-import YouTube from "./information/youtube";
-import Spotify from "./information/spotify";
+import LeagueOfLegendsMastery from "./dashboard/LeagueOfLegends";
+import StackOverflow from "./dashboard/StackOverflow";
+import Unsplash from "./dashboard/Unsplash";
+import YouTube from "./dashboard/YouTube";
+import Spotify from "./dashboard/Spotify";
 
 function App() {
   return (

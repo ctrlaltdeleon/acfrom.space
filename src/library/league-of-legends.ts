@@ -1,4 +1,5 @@
-import * as API from "../library/api";
+import * as API from "./api";
+import { ChampionMastery } from "./types";
 
 /**
  * Latest version which as at index 0.
@@ -15,7 +16,7 @@ const getLatestLeagueOfLegendsVersion = async () => {
 
 /**
  *
- * @returns All champion data.
+ * @returns Latest champion data.
  */
 const getChampions = async () => {
   const version = await getLatestLeagueOfLegendsVersion();
@@ -38,10 +39,24 @@ export const getChampionMasteries = async () => {
   const masteryData = await res.json();
   const championData = await getChampions();
   for (let count = 0; count < amountOfChampions; count++) {
-    const champion = Object.values(championData).find((champion: any) => {
-      return champion.key === masteryData[count].championId.toString();
-    });
-    championMasteries.push(champion);
+    let championFound: any = Object.values(championData).find(
+      (champion: any) => {
+        return champion.key === masteryData[count].championId.toString();
+      }
+    );
+    let championObject = {
+      name: championFound.name,
+      title: championFound.title,
+      championPoints: masteryData[count].championPoints,
+    };
+    championMasteries.push(championObject);
   }
   return championMasteries;
 };
+
+// name: "Hecarim"
+// title: "the Shadow of War"
+// championPoints: 140709
+// append what else later
+
+//  need to do a search on summoner id => encrypted id => these calls
