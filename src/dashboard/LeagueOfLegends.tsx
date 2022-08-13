@@ -4,10 +4,7 @@ import { getChampionMasteries } from "../library/league-of-legends";
 import useSWR from "swr";
 
 export default function LeagueOfLegendsMastery() {
-  const { data } = useSWR<any>(
-    "/library/league-of-legends",
-    getChampionMasteries
-  );
+  const { data } = useSWR<any>("getChampionMasteries", getChampionMasteries);
 
   return (
     <Fragment>
