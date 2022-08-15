@@ -1,19 +1,23 @@
-import { Fragment } from "react";
-
-import * as API from "../library/api";
+import { getUnsplashUserPublicProfile } from "../library/unsplash";
+import { ERROR_NUMBER, MY_USERNAME } from "../library/reusables";
+import { Unsplash } from "../library/types";
 import useSWR from "swr";
 
 export default function StackOverflow() {
-  const { data } = useSWR(API.UNSPLASH_USER_DATA, API.FETCHER);
+  const { data } = useSWR<Unsplash>(MY_USERNAME, getUnsplashUserPublicProfile);
 
-  const downloads: number = data ? data?.downloads?.total : "";
-  const views: number = data ? data?.views?.total : "";
+  const downloads: number = data?.downloads || ERROR_NUMBER;
+  const views: number = data?.views || ERROR_NUMBER;
 
   return (
-    <Fragment>
+    <>
       <h2>Unsplash</h2>
-      <p>Downloads: {downloads}</p>
-      <p>Views: {views}</p>
-    </Fragment>
+      {(data && (
+        <>
+          <p>Downloads: {downloads}</p>
+          <p>Views: {views}</p>
+        </>
+      )) || <></>}
+    </>
   );
 }
