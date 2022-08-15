@@ -1,38 +1,27 @@
-import React, { Fragment } from "react";
-
 import { getChampionMasteries } from "../library/league-of-legends";
+import { MY_SUMMONER_NAME } from "../library/reusables";
 import useSWR from "swr";
+import { ChampionMasteryModel } from "../library/types";
+import { Fragment } from "react";
 
 export default function LeagueOfLegendsMastery() {
-  const { data } = useSWR<any>("getChampionMasteries", getChampionMasteries);
+  const { data } = useSWR<Array<ChampionMasteryModel>>(
+    MY_SUMMONER_NAME,
+    getChampionMasteries
+  );
 
   return (
-    <Fragment>
-      {data && (
-        <Fragment>
-          <h2>League of Legends</h2>
-          <p>
-            Favorite champion: {data[0]?.name}, {data[0].title} (
-            {data[0].championPoints})
-          </p>
-          <p>
-            2nd Favorite champion: {data[1]?.name}, {data[1].title} (
-            {data[1].championPoints})
-          </p>
-          <p>
-            3rd Favorite champion: {data[2]?.name}, {data[2].title} (
-            {data[2].championPoints})
-          </p>
-          <p>
-            4th Favorite champion: {data[3]?.name}, {data[3].title} (
-            {data[3].championPoints})
-          </p>
-          <p>
-            5th Favorite champion: {data[4]?.name}, {data[4].title} (
-            {data[4].championPoints})
-          </p>
-        </Fragment>
-      )}
-    </Fragment>
+    <>
+      <h2>League of Legends</h2>
+      {data &&
+        data.map((champion: ChampionMasteryModel, index: number) => (
+          <Fragment key={index}>
+            <p>
+              Rank {index + 1}: {data[index].name}, {data[index].title} (
+              {data[index].championPoints} mastery points)
+            </p>
+          </Fragment>
+        ))}
+    </>
   );
 }

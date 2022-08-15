@@ -5,7 +5,7 @@ import { SpotifyTrackModel } from "../library/types";
 import useSWR from "swr";
 
 export default function Spotify() {
-  const { data } = useSWR(
+  const { data } = useSWR<Array<SpotifyTrackModel>>(
     ITS_OVER_ANAKIN_I_HAVE_THE_HIGH_GROUND,
     getTop5Tracks
   );

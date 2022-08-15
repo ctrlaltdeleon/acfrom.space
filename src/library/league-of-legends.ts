@@ -1,11 +1,10 @@
-import * as API from "./api";
-import { ChampionMastery } from "./types";
+import { ChampionMasteryModel } from "./types";
 
-/**
- * Latest version which as at index 0.
- *
- * @returns "12.15.1"
- */
+export const RIOT_GAMES_API_KEY_URL = `?api_key=${process.env.REACT_APP_RIOT_GAMES_API_KEY}`;
+export const RIOT_GAMES_ENCRYPTED_SUMMONER_ID =
+  "i9XfHa3-PcT6SFzN-NFPrXJ4wbhhLYU9slHkn8kVp6EPTHE";
+export const RIOT_GAMES_NORTH_AMERICA = "https://na1.api.riotgames.com/";
+
 const getLatestLeagueOfLegendsVersion = async () => {
   const res = await fetch(
     "https://ddragon.leagueoflegends.com/api/versions.json"
@@ -14,10 +13,6 @@ const getLatestLeagueOfLegendsVersion = async () => {
   return data[0];
 };
 
-/**
- *
- * @returns Latest champion data.
- */
 const getChampions = async () => {
   const version = await getLatestLeagueOfLegendsVersion();
   const res = await fetch(
@@ -27,36 +22,33 @@ const getChampions = async () => {
   return data.data;
 };
 
-/**
- * Change "amountOfChampions" for amount of masteries to send.
- *
- * @returns [{ name: "Hecarim" ...} , {...}]
- */
-export const getChampionMasteries = async () => {
+const getEncryptedSummonerId = async (summonerName: string) => {
+  const res = await fetch(
+    `${RIOT_GAMES_NORTH_AMERICA}lol/summoner/v4/summoners/by-name/${summonerName}${RIOT_GAMES_API_KEY_URL}`
+  );
+  const data = await res.json();
+  return data.id;
+};
+
+export const getChampionMasteries = async (summonerName: string) => {
   let championMasteries = [];
-  let amountOfChampions = 5;
-  const res = await fetch(API.RIOT_GAMES_SUMMONER_MASTERY);
-  const masteryData = await res.json();
+  const id = await getEncryptedSummonerId(summonerName);
+  const res = await fetch(
+    `${RIOT_GAMES_NORTH_AMERICA}lol/champion-mastery/v4/champion-masteries/by-summoner/${id}${RIOT_GAMES_API_KEY_URL}`
+  );
   const championData = await getChampions();
-  for (let count = 0; count < amountOfChampions; count++) {
+  const masteryData = await res.json();
+  for (let count = 0; count < 5; count++) {
     let championFound: any = Object.values(championData).find(
       (champion: any) => {
         return champion.key === masteryData[count].championId.toString();
       }
     );
-    let championObject = {
-      name: championFound.name,
-      title: championFound.title,
-      championPoints: masteryData[count].championPoints,
-    };
-    championMasteries.push(championObject);
+    championMasteries.push({
+      name: championFound?.name,
+      title: championFound?.title,
+      championPoints: masteryData[count]?.championPoints,
+    } as ChampionMasteryModel);
   }
   return championMasteries;
 };
-
-// name: "Hecarim"
-// title: "the Shadow of War"
-// championPoints: 140709
-// append what else later
-
-//  need to do a search on summoner id => encrypted id => these calls

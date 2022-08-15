@@ -1,4 +1,4 @@
-export type ChampionMastery = {
+export type ChampionMasteryModel = {
   name: string;
   title: string;
   championPoints: number;
