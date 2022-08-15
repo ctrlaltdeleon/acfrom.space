@@ -1,3 +1,5 @@
+import "./styles/global.css";
+
 import LeagueOfLegendsMastery from "./dashboard/LeagueOfLegends";
 import StackOverflow from "./dashboard/StackOverflow";
 import Unsplash from "./dashboard/Unsplash";
