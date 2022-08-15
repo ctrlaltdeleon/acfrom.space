@@ -1,21 +1,21 @@
-import { Fragment } from "react";
-
-import * as API from "../library/api";
+import { ERROR_NUMBER, MY_YOUTUBE_ID } from "../library/reusables";
+import { getYouTubeUserData } from "../library/youtube";
 import useSWR from "swr";
+import { YouTubeModel } from "../library/types";
 
 export default function YouTube() {
-  const { data } = useSWR(API.YOUTUBE_USER_DATA, API.FETCHER);
+  const { data } = useSWR<YouTubeModel>(MY_YOUTUBE_ID, getYouTubeUserData);
 
-  const subscribers: number = data?.items[0]?.statistics?.subscriberCount;
-  const videos: number = data?.items[0]?.statistics?.videoCount;
-  const views: number = data?.items[0]?.statistics?.viewCount;
+  const subscribers: number = data?.subscribers || ERROR_NUMBER;
+  const videos: number = data?.videos || ERROR_NUMBER;
+  const views: number = data?.views || ERROR_NUMBER;
 
   return (
-    <Fragment>
+    <>
       <h2>YouTube</h2>
       <p>Subscribers: {subscribers}</p>
       <p>Videos made: {videos}</p>
       <p>Video views: {views}</p>
-    </Fragment>
+    </>
   );
 }

@@ -1,3 +1,9 @@
+export type ChampionMastery = {
+  name: string;
+  title: string;
+  championPoints: number;
+};
+
 export type StackOverflowModel = {
   reputation: number;
 };
@@ -7,8 +13,8 @@ export type UnsplashModel = {
   views: number;
 };
 
-export type ChampionMastery = {
-  name: string;
-  title: string;
-  championPoints: number;
+export type YouTubeModel = {
+  subscribers: number;
+  videos: number;
+  views: number;
 };
