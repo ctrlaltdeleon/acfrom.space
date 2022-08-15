@@ -4,9 +4,9 @@
 import { UnsplashModel } from "./types";
 
 export const getUnsplashUserPublicProfile = async (userId: string) => {
-  const accessToken = process.env.REACT_APP_UNSPLASH_ACCESS_KEY;
+  const accessKey = process.env.REACT_APP_UNSPLASH_ACCESS_KEY;
   const res = await fetch(
-    `https://api.unsplash.com/users/${userId}/statistics?client_id=${accessToken}`
+    `https://api.unsplash.com/users/${userId}/statistics?client_id=${accessKey}`
   );
   const data = await res.json();
   return {

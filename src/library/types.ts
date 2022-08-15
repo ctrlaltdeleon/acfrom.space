@@ -8,6 +8,12 @@ export type StackOverflowModel = {
   reputation: number;
 };
 
+export type SpotifyTrackModel = {
+  artist: string;
+  songUrl: string;
+  title: string;
+};
+
 export type UnsplashModel = {
   downloads: number;
   views: number;
