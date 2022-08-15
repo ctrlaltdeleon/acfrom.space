@@ -1,7 +1,7 @@
 // unsplash (need dev account)
 // doc: https://unsplash.com/documentation#get-a-users-public-profile
 
-import { Unsplash } from "./types";
+import { UnsplashModel } from "./types";
 
 export const getUnsplashUserPublicProfile = async (userId: string) => {
   const accessToken = process.env.REACT_APP_UNSPLASH_ACCESS_KEY;
@@ -12,5 +12,5 @@ export const getUnsplashUserPublicProfile = async (userId: string) => {
   return {
     downloads: data.downloads.total,
     views: data.views.total,
-  } as Unsplash;
+  } as UnsplashModel;
 };
