@@ -6,9 +6,9 @@ import { YouTubeModel } from "../library/types";
 export default function YouTube() {
   const { data } = useSWR<YouTubeModel>(MY_YOUTUBE_ID, getYouTubeUserData);
 
-  const subscribers: number = data?.subscribers || ERROR_NUMBER;
-  const videos: number = data?.videos || ERROR_NUMBER;
-  const views: number = data?.views || ERROR_NUMBER;
+  const subscribers: number = data?.subscribers ?? ERROR_NUMBER;
+  const videos: number = data?.videos ?? ERROR_NUMBER;
+  const views: number = data?.views ?? ERROR_NUMBER;
 
   return (
     <>

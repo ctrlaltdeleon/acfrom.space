@@ -1,4 +1,8 @@
-import { ERROR_NUMBER, MY_STACK_OVERFLOW_ID } from "../library/reusables";
+import {
+  ERROR_NUMBER,
+  MY_STACK_OVERFLOW_ID,
+  MY_STACK_OVERFLOW_LINK,
+} from "../library/reusables";
 import { getStackOverflowUserData } from "../library/stack-overflow";
 import MetricCard from "./MetricCard";
 import { StackOverflowModel } from "../library/types";
@@ -10,13 +14,14 @@ export default function StackOverflow() {
     getStackOverflowUserData
   );
 
-  const reputation: number = data?.reputation || ERROR_NUMBER;
+  const link: string = data?.link ?? MY_STACK_OVERFLOW_LINK;
+  const reputation: number = data?.reputation ?? ERROR_NUMBER;
 
   return (
     <>
       <MetricCard
         header="Stack Overflow"
-        link={"N/A"}
+        link={link}
         metric={reputation}
         isCurrency={false}
       />

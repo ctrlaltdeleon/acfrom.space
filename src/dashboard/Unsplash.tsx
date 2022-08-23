@@ -9,8 +9,8 @@ export default function StackOverflow() {
     getUnsplashUserPublicProfile
   );
 
-  const downloads: number = data?.downloads || ERROR_NUMBER;
-  const views: number = data?.views || ERROR_NUMBER;
+  const downloads: number = data?.downloads ?? ERROR_NUMBER;
+  const views: number = data?.views ?? ERROR_NUMBER;
 
   return (
     <>

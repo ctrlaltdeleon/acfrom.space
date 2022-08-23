@@ -12,14 +12,9 @@ export default function MetricCard({
   isCurrency,
 }: MetricCardProps) {
   return (
-    <div className="metric-card bg-white dark:bg-slate-500 border border-gray-200 dark:border-gray-800 rounded-lg p-4 max-w-72 w-full">
-      <a
-        aria-label={header}
-        target="_blank"
-        rel="noopener noreferrer"
-        href={link}
-      >
-        <div className="flex items-center text-gray-900 dark:text-gray-100">
+    <div className="bg-white dark:bg-ei1 border-2 border-l-8 border-slate-800 dark:border-ei2 p-4 rounded-lg w-full">
+      <a aria-label={header} target="_blank" rel="noreferrer" href={link}>
+        <div className="flex items-center text-slate-800 dark:text-slate-200">
           {header}
           {/* share icon */}
           <svg
@@ -38,7 +33,7 @@ export default function MetricCard({
           </svg>
         </div>
       </a>
-      <p className="mt-1 text-3xl font-bold spacing-sm text-black dark:text-white">
+      <p className="font-bold mt-1 spacing-sm text-3xl text-black dark:text-white">
         {metric > 0 && isCurrency && "$"}
         {metric > 0 ? metric.toLocaleString() : "-"}
       </p>

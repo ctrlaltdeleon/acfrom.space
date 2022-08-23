@@ -5,6 +5,7 @@ export type ChampionMasteryModel = {
 };
 
 export type StackOverflowModel = {
+  link: string;
   reputation: number;
 };
 

@@ -9,6 +9,7 @@ export const getStackOverflowUserData = async (userId: string) => {
   );
   const data = await res.json();
   return {
+    link: data.items[0].link,
     reputation: data.items[0].reputation,
   } as StackOverflowModel;
 };
