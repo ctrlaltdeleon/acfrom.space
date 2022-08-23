@@ -12,11 +12,11 @@ export default function LeagueOfLegendsMastery() {
 
   return (
     <>
-      <h2>League of Legends</h2>
+      <div className="text-lg font-medium text-sky-500">League of Legends</div>
       {data &&
         data.map((champion: ChampionMasteryModel, index: number) => (
           <Fragment key={index}>
-            <p className="text-lg font-medium text-sky-500">
+            <p>
               Rank {index + 1}: {data[index].name}, {data[index].title} (
               {data[index].championPoints} mastery points)
             </p>

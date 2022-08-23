@@ -12,7 +12,9 @@ export default function Spotify() {
 
   return (
     <>
-      <h2>Top 5 Spotify Tracks</h2>
+      <div className="text-lg font-medium text-sky-500">
+        Top 5 Spotify Tracks
+      </div>
       {data &&
         data.map((track: SpotifyTrackModel, index: number) => (
           <Fragment key={index}>

@@ -12,7 +12,7 @@ export default function YouTube() {
 
   return (
     <>
-      <h2>YouTube</h2>
+      <div className="text-lg font-medium text-sky-500">YouTube</div>
       <p>Subscribers: {subscribers}</p>
       <p>Videos made: {videos}</p>
       <p>Video views: {views}</p>

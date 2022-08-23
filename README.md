@@ -5,6 +5,7 @@
 - pngtuber thing jojo was talking about
 - host on netlify (or choose idk)
 - make a top 5 league champs if user puts in summoner name (or 10)
+- configure react-spline object, think about the styling
 
 ## how to hook up spotify
 

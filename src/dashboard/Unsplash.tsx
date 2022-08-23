@@ -14,7 +14,7 @@ export default function StackOverflow() {
 
   return (
     <>
-      <h2>Unsplash</h2>
+      <div className="text-lg font-medium text-sky-500">Unsplash</div>
       <p>Downloads: {downloads}</p>
       <p>Views: {views}</p>
     </>

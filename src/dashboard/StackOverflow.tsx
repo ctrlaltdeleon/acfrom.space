@@ -13,7 +13,7 @@ export default function StackOverflow() {
 
   return (
     <>
-      <h2>StackOverflow</h2>
+      <div className="text-lg font-medium text-sky-500">StackOverflow</div>
       <p>Reputation: {reputation}</p>
     </>
   );
