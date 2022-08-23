@@ -41,7 +41,14 @@ how to acquire these things:
 - run this curl command in cmd (if windows, unsure for mac and linux) to get the refresh token
 - `curl -H "Authorization: Basic ${BASE64} -d grant_type=authorization_code -d code=${CODE_FROM_URL} -d redirect_uri=${REDIRECT_URI} https://accounts.spotify.com/api/token`
 - the response json should contain the refresh token
-  - `{ "access_token": ..., "token_type": "Bearer", "expires_in": "3600, "refresh_token": ..., "scope": ...}`
+  - `{ "access_token": ..., "token_type": "Bearer", "expires_in": "3600, "refresh_token": ..., "scope": ... }`
   - access tokens expire, but are recreated every time it's called
   - refresh tokens are indefinite and should be saved in the `.env`
   - more info on OAuth: https://developer.spotify.com/documentation/ios/guides/token-swap-and-refresh/
+
+## tailwindcss
+
+- mt => margin top
+- text-3xl => text sizing at 1.875rem
+- spacing-sm => spacing of 8px
+- text-black => text color
