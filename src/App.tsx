@@ -4,10 +4,8 @@ import Home from "./home";
 
 function App() {
   return (
-    <div className="dark">
-      <div className="dark:bg-ei1">
-        <Home />
-      </div>
+    <div className="dark bg-gradient-to-r from-ei1 to-ei2 h-screen w-screen">
+      <Home />
     </div>
   );
 }
