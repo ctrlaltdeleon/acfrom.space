@@ -1,5 +1,6 @@
 import { getUnsplashUserPublicProfile } from "../library/unsplash";
 import { ERROR_NUMBER, MY_USERNAME } from "../library/reusables";
+import MetricCard from "./MetricCard";
 import { UnsplashModel } from "../library/types";
 import useSWR from "swr";
 
@@ -14,9 +15,18 @@ export default function StackOverflow() {
 
   return (
     <>
-      <div className="text-lg font-medium text-sky-500">Unsplash</div>
-      <p>Downloads: {downloads}</p>
-      <p>Views: {views}</p>
+      <MetricCard
+        header="Unsplash Downloads"
+        link={"link"}
+        metric={downloads}
+        isCurrency={false}
+      />
+      <MetricCard
+        header="Unsplash Views"
+        link={"link"}
+        metric={views}
+        isCurrency={false}
+      />
     </>
   );
 }

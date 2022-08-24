@@ -21,6 +21,7 @@ export type UnsplashModel = {
 };
 
 export type YouTubeModel = {
+  linkId: string;
   subscribers: number;
   videos: number;
   views: number;

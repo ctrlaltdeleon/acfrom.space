@@ -14,8 +14,9 @@ export const getYouTubeUserData = async (userId: string) => {
   );
   const data = await res.json();
   return {
-    subscribers: data.items[0].statistics.subscriberCount,
-    videos: data.items[0].statistics.videoCount,
-    views: data.items[0].statistics.viewCount,
+    linkId: data.items[0].id,
+    subscribers: parseInt(data.items[0].statistics.subscriberCount),
+    videos: parseInt(data.items[0].statistics.videoCount),
+    views: parseInt(data.items[0].statistics.viewCount),
   } as YouTubeModel;
 };

@@ -20,7 +20,7 @@ export default function StackOverflow() {
   return (
     <>
       <MetricCard
-        header="Stack Overflow"
+        header="Stack Overflow Reputation"
         link={link}
         metric={reputation}
         isCurrency={false}
