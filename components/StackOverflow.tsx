@@ -2,10 +2,10 @@ import {
   ERROR_NUMBER,
   MY_STACK_OVERFLOW_ID,
   MY_STACK_OVERFLOW_LINK,
-} from "../library/reusables";
-import { getStackOverflowUserData } from "../library/stack-overflow";
+} from "../lib/utils";
+import { getStackOverflowUserData } from "../lib/stack-overflow";
 import MetricCard from "./MetricCard";
-import { StackOverflowModel } from "../library/types";
+import { StackOverflowModel } from "../lib/types";
 import useSWR from "swr";
 
 export default function StackOverflow() {

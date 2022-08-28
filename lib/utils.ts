@@ -9,3 +9,6 @@ export const MY_USERNAME = "acfromspace";
 export const MY_YOUTUBE_ID = "UC8esh-JWOUQFYYSHZw-3e3w";
 export const MY_YOUTUBE_LINK =
   "https://www.youtube.com/channel/UC8esh-JWOUQFYYSHZw-3e3w";
+
+export const SECONDS_OF_FRESHNESS = 600;
+export const SECONDS_OF_REVALIDATION = 600;

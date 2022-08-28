@@ -1,12 +1,8 @@
-import {
-  ERROR_NUMBER,
-  MY_YOUTUBE_ID,
-  MY_YOUTUBE_LINK,
-} from "../library/reusables";
-import { getYouTubeUserData } from "../library/youtube";
+import { ERROR_NUMBER, MY_YOUTUBE_ID, MY_YOUTUBE_LINK } from "../lib/utils";
+import { getYouTubeUserData } from "../lib/youtube";
 import MetricCard from "./MetricCard";
 import useSWR from "swr";
-import { YouTubeModel } from "../library/types";
+import { YouTubeModel } from "../lib/types";
 
 export default function YouTube() {
   const { data } = useSWR<YouTubeModel>(MY_YOUTUBE_ID, getYouTubeUserData);

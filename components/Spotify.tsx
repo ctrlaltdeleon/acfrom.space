@@ -1,7 +1,7 @@
 import { Fragment } from "react";
-import { getTop5Tracks } from "../library/spotify";
-import { ITS_OVER_ANAKIN_I_HAVE_THE_HIGH_GROUND } from "../library/reusables";
-import { SpotifyTrackModel } from "../library/types";
+import { getTop5Tracks } from "../lib/spotify";
+import { ITS_OVER_ANAKIN_I_HAVE_THE_HIGH_GROUND } from "../lib/utils";
+import { SpotifyTrackModel } from "../lib/types";
 import useSWR from "swr";
 
 export default function Spotify() {

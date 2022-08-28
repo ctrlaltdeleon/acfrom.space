@@ -8,6 +8,10 @@
 - configure react-spline object, think about the styling
 - metric card currently deals with null values for metrics, so probably no need for 420 lol
 
+## apis
+
+- unsplash: https://unsplash.com/documentation#get-a-users-public-profile
+
 ## how to hook up spotify
 
 reference the "spotify.ts" file for help.
@@ -57,8 +61,10 @@ how to acquire these things:
 - rounded-lg => border radius is rounded quite a bit
 - p-4 => padding all around by 4
 - w-full => full width
+- bg-gradient-to-r => background gradient from left to right
 
 ## things i've learned
 
 - noreferrer, if a user clicks a link on my website, the website won't know the click came from my website
 - ?? is for when a value is undefined or null, || is for when a value is falsy for example 0
+- cache-control in a response is used to let the browser when to refresh the data

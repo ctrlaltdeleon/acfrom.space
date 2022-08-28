@@ -1,7 +1,7 @@
-import { getChampionMasteries } from "../library/league-of-legends";
-import { MY_SUMMONER_NAME } from "../library/reusables";
+import { getChampionMasteries } from "../lib/league-of-legends";
+import { MY_SUMMONER_NAME } from "../lib/utils";
 import useSWR from "swr";
-import { ChampionMasteryModel } from "../library/types";
+import { ChampionMasteryModel } from "../lib/types";
 import { Fragment } from "react";
 
 export default function LeagueOfLegendsMastery() {

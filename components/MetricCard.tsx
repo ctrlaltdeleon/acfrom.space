@@ -1,7 +1,7 @@
 interface MetricCardProps {
   header: string;
   link: string;
-  metric: number;
+  metric: Number;
   isCurrency: boolean;
 }
 
