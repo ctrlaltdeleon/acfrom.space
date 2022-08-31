@@ -14,7 +14,7 @@ export default function StackOverflow() {
     getStackOverflowUserData
   );
 
-  const link: string = data?.link ?? MY_STACK_OVERFLOW_LINK;
+  const link: string = data?.link;
   const reputation: number = data?.reputation ?? ERROR_NUMBER;
 
   return (
