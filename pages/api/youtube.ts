@@ -1,19 +1,19 @@
 import {
-  MY_USERNAME,
+  MY_YOUTUBE_ID,
   SECONDS_OF_FRESHNESS,
   SECONDS_OF_REVALIDATION,
 } from "../../lib/utils";
 import { type NextRequest } from "next/server";
-import { UnsplashModel } from "../../lib/types";
+import { YouTubeModel } from "../../lib/types";
 
 export const config = {
   runtime: "experimental-edge",
 };
 
 export default async function handler(req: NextRequest) {
-  const accessKey = process.env.UNSPLASH_ACCESS_KEY;
+  const apiKey = process.env.YOUTUBE_API_KEY;
   const response = await fetch(
-    `https://api.unsplash.com/users/${MY_USERNAME}/statistics?client_id=${accessKey}`,
+    `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2Cstatistics&id=${MY_YOUTUBE_ID}&key=${apiKey}`,
     {
       method: "GET",
     }
@@ -21,9 +21,11 @@ export default async function handler(req: NextRequest) {
   const data = await response.json();
   return new Response(
     JSON.stringify({
-      downloads: data.downloads.total,
-      views: data.views.total,
-    } as UnsplashModel),
+      linkId: data.items[0].id,
+      subscribers: parseInt(data.items[0].statistics.subscriberCount),
+      videos: parseInt(data.items[0].statistics.videoCount),
+      views: parseInt(data.items[0].statistics.viewCount),
+    } as YouTubeModel),
     {
       status: 200,
       headers: {

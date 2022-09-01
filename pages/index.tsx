@@ -1,6 +1,9 @@
-import Spline from "@splinetool/react-spline";
 import Container from "../components/Container";
+import Spline from "@splinetool/react-spline";
+import Spotify from "../components/Spotify";
+import StackOverflow from "../components/StackOverflow";
 import Unsplash from "../components/Unsplash";
+import YouTube from "../components/YouTube";
 
 export default function Home() {
   return (
@@ -20,8 +23,13 @@ export default function Home() {
         </div>
         <div className="flex flex-col w-full">
           <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 my-2 w-full">
+            <StackOverflow />
             <Unsplash />
+            <YouTube />
           </div>
+        </div>
+        <div>
+          <Spotify />
         </div>
       </div>
     </Container>

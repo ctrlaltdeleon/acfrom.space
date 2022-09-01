@@ -1,7 +1,7 @@
 import MetricCard from "./MetricCard";
 import { UnsplashModel } from "../lib/types";
-import useSWR from "swr";
 import fetcher from "../lib/fetcher";
+import useSWR from "swr";
 
 export default function Unsplash() {
   const { data } = useSWR<UnsplashModel>("/api/unsplash", fetcher);

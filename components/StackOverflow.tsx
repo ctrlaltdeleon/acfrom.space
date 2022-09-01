@@ -1,6 +1,6 @@
-import fetcher from "../lib/fetcher";
 import MetricCard from "./MetricCard";
 import { StackOverflowModel } from "../lib/types";
+import fetcher from "../lib/fetcher";
 import useSWR from "swr";
 
 export default function StackOverflow() {

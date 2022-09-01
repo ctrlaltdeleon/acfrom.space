@@ -1,17 +1,15 @@
-import { ERROR_NUMBER, MY_YOUTUBE_ID, MY_YOUTUBE_LINK } from "../lib/utils";
-import { getYouTubeUserData } from "../lib/youtube";
 import MetricCard from "./MetricCard";
-import useSWR from "swr";
 import { YouTubeModel } from "../lib/types";
+import fetcher from "../lib/fetcher";
+import useSWR from "swr";
 
 export default function YouTube() {
-  const { data } = useSWR<YouTubeModel>(MY_YOUTUBE_ID, getYouTubeUserData);
+  const { data } = useSWR<YouTubeModel>("/api/youtube", fetcher);
 
-  const link: string =
-    "https://www.youtube.com/channel/" + data?.linkId ?? MY_YOUTUBE_LINK;
-  const subscribers: number = data?.subscribers ?? ERROR_NUMBER;
-  const videos: number = data?.videos ?? ERROR_NUMBER;
-  const views: number = data?.views ?? ERROR_NUMBER;
+  const link: string = "https://www.youtube.com/channel/" + data?.linkId;
+  const subscribers = data?.subscribers;
+  const videos = data?.videos;
+  const views = data?.views;
 
   return (
     <>
