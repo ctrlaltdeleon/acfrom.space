@@ -15,21 +15,21 @@ export default function YouTube() {
     <>
       <MetricCard
         header="YouTube Subscribers"
+        isCurrency={false}
         link={link}
         metric={subscribers}
-        isCurrency={false}
       />
       <MetricCard
         header="YouTube Videos"
+        isCurrency={false}
         link={link}
         metric={videos}
-        isCurrency={false}
       />
       <MetricCard
         header="YouTube Views"
+        isCurrency={false}
         link={link}
         metric={views}
-        isCurrency={false}
       />
     </>
   );

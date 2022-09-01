@@ -7,22 +7,22 @@ export default function Unsplash() {
   const { data } = useSWR<UnsplashModel>("/api/unsplash", fetcher);
 
   const downloads = data?.downloads;
-  const views = data?.views;
   const link = "https://unsplash.com/acfromspace";
+  const views = data?.views;
 
   return (
     <>
       <MetricCard
         header="Unsplash Downloads"
+        isCurrency={false}
         link={link}
         metric={downloads}
-        isCurrency={false}
       />
       <MetricCard
         header="Unsplash Views"
+        isCurrency={false}
         link={link}
         metric={views}
-        isCurrency={false}
       />
     </>
   );
