@@ -1,21 +1,13 @@
-import {
-  ERROR_NUMBER,
-  MY_STACK_OVERFLOW_ID,
-  MY_STACK_OVERFLOW_LINK,
-} from "../lib/utils";
-import { getStackOverflowUserData } from "../lib/stack-overflow";
+import fetcher from "../lib/fetcher";
 import MetricCard from "./MetricCard";
 import { StackOverflowModel } from "../lib/types";
 import useSWR from "swr";
 
 export default function StackOverflow() {
-  const { data } = useSWR<StackOverflowModel>(
-    MY_STACK_OVERFLOW_ID,
-    getStackOverflowUserData
-  );
+  const { data } = useSWR<StackOverflowModel>("/api/stackoverflow", fetcher);
 
-  const link: string = data?.link;
-  const reputation: number = data?.reputation ?? ERROR_NUMBER;
+  const link = data?.link;
+  const reputation = data?.reputation;
 
   return (
     <>

@@ -4,7 +4,7 @@ import {
   SECONDS_OF_REVALIDATION,
 } from "../../lib/utils";
 import { type NextRequest } from "next/server";
-import { StackOverflowModel, UnsplashModel } from "../../lib/types";
+import { StackOverflowModel } from "../../lib/types";
 
 export const config = {
   runtime: "experimental-edge",

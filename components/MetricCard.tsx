@@ -1,7 +1,7 @@
 interface MetricCardProps {
   header: string;
-  link: string;
-  metric: Number;
+  link: string | undefined;
+  metric: number | undefined;
   isCurrency: boolean;
 }
 
@@ -16,7 +16,6 @@ export default function MetricCard({
       <a aria-label={header} target="_blank" rel="noreferrer" href={link}>
         <div className="flex items-center text-slate-800 dark:text-slate-200">
           {header}
-          {/* share icon */}
           <svg
             className="h-4 w-4 ml-1"
             xmlns="http://www.w3.org/2000/svg"
@@ -34,8 +33,10 @@ export default function MetricCard({
         </div>
       </a>
       <p className="font-bold mt-1 spacing-sm text-3xl text-black dark:text-white">
-        {metric > 0 && isCurrency && "$"}
-        {metric > 0 ? metric.toLocaleString() : "-"}
+        {typeof metric === "number" && metric > 0 && isCurrency && "$"}
+        {typeof metric === "number" && metric > 0
+          ? metric.toLocaleString()
+          : "-"}
       </p>
     </div>
   );

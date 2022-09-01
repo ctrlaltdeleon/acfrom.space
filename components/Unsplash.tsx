@@ -6,8 +6,8 @@ import fetcher from "../lib/fetcher";
 export default function Unsplash() {
   const { data } = useSWR<UnsplashModel>("/api/unsplash", fetcher);
 
-  const downloads = new Number(data?.downloads);
-  const views = new Number(data?.views);
+  const downloads = data?.downloads;
+  const views = data?.views;
   const link = "https://unsplash.com/acfromspace";
 
   return (
