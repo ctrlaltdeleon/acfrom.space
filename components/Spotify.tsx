@@ -1,14 +1,12 @@
 import { Fragment } from "react";
-import { getTop5Tracks } from "../lib/spotify";
-import { ITS_OVER_ANAKIN_I_HAVE_THE_HIGH_GROUND } from "../lib/utils";
 import { SpotifyTrackModel } from "../lib/types";
+import fetcher from "../lib/fetcher";
 import useSWR from "swr";
 
 export default function Spotify() {
-  const { data } = useSWR<Array<SpotifyTrackModel>>(
-    ITS_OVER_ANAKIN_I_HAVE_THE_HIGH_GROUND,
-    getTop5Tracks
-  );
+  const { data } = useSWR<SpotifyTrackModel[]>("/api/spotify", fetcher);
+
+  console.log("ac*** data", data);
 
   return (
     <>

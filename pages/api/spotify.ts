@@ -1,4 +1,6 @@
-import { SpotifyTrackModel } from "./types";
+import { SECONDS_OF_FRESHNESS, SECONDS_OF_REVALIDATION } from "../../lib/utils";
+import { type NextRequest } from "next/server";
+import { SpotifyTrackModel } from "../../lib/types";
 
 const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
 const clientSecret = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
@@ -21,12 +23,17 @@ const getAccessToken = async () => {
   return response.json();
 };
 
-export const getTop5Tracks = async () => {
+export const config = {
+  runtime: "experimental-edge",
+};
+
+export default async function handler(req: NextRequest) {
   const { access_token } = await getAccessToken(); // must be spelled as "access_token"
   const response = await fetch("https://api.spotify.com/v1/me/top/tracks", {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
+    method: "GET",
   });
   const data = await response.json();
   const tracks = data.items.slice(0, 5).map(
@@ -37,24 +44,16 @@ export const getTop5Tracks = async () => {
         title: track.name,
       } as SpotifyTrackModel)
   );
-  return tracks;
-};
-
-// export default async function handler(req: NextRequest) {
-//   const response = await getTopTracks();
-//   const { items } = await response.json();
-
-//   const tracks = items.slice(0, 10).map((track) => ({
-//     artist: track.artists.map((_artist) => _artist.name).join(', '),
-//     songUrl: track.external_urls.spotify,
-//     title: track.name
-//   }));
-
-//   return new Response(JSON.stringify({ tracks }), {
-//     status: 200,
-//     headers: {
-//       'content-type': 'application/json',
-//       'cache-control': 'public, s-maxage=86400, stale-while-revalidate=43200'
-//     }
-//   });
-// }
+  return new Response(
+    JSON.stringify({
+      tracks,
+    }),
+    {
+      status: 200,
+      headers: {
+        "content-type": "application/json",
+        "cache-control": `public, s-maxage=${SECONDS_OF_FRESHNESS}, stale-while-revalidate=${SECONDS_OF_REVALIDATION}`,
+      },
+    }
+  );
+}
