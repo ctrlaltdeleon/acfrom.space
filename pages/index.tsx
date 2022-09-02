@@ -28,7 +28,13 @@ export default function Home() {
             <YouTube />
           </div>
         </div>
-        <div className="flex w-full">
+        {/* <div className="flex flex-col w-full">
+          <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 my-2 w-full">
+            <Spotify />
+            <Spotify />
+          </div>
+        </div> */}
+        <div className="flex gap-4">
           <div className="grid gap-4 grid-cols-1 my-2 w-full">
             <Spotify />
           </div>
