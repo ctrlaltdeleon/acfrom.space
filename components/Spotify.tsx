@@ -1,12 +1,10 @@
 import { Fragment } from "react";
-import { SpotifyTrackModel } from "../lib/types";
+import { SpotifyTrackModel, TopTracks } from "../lib/types";
 import fetcher from "../lib/fetcher";
 import useSWR from "swr";
 
 export default function Spotify() {
-  const { data } = useSWR<SpotifyTrackModel[]>("/api/spotify", fetcher);
-
-  console.log("ac*** data", data);
+  const { data } = useSWR<TopTracks>("/api/spotify", fetcher);
 
   return (
     <>
@@ -14,7 +12,7 @@ export default function Spotify() {
         Top 5 Spotify Tracks
       </div>
       {data &&
-        data.map((track: SpotifyTrackModel, index: number) => (
+        data.tracks.map((track: SpotifyTrackModel, index: number) => (
           <Fragment key={index}>
             <p>
               Rank {index + 1}: "{track.title}" by {track.artist}

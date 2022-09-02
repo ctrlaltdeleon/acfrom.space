@@ -15,6 +15,10 @@ export type SpotifyTrackModel = {
   title: string;
 };
 
+export type TopTracks = {
+  tracks: SpotifyTrackModel[];
+};
+
 export type UnsplashModel = {
   downloads: number;
   views: number;

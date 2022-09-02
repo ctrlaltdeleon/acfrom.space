@@ -28,8 +28,13 @@ export default function Home() {
             <YouTube />
           </div>
         </div>
-        <div>
-          <Spotify />
+        <div className="flex w-full">
+          <div className="grid gap-4 grid-cols-1 my-2 w-full">
+            <Spotify />
+          </div>
+          <div className="grid gap-4 grid-cols-1 my-2 w-full">
+            <Spotify />
+          </div>
         </div>
       </div>
     </Container>
