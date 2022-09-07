@@ -2,9 +2,9 @@ import { SECONDS_OF_FRESHNESS, SECONDS_OF_REVALIDATION } from "../../lib/utils";
 import { type NextRequest } from "next/server";
 import { SpotifyTrackModel } from "../../lib/types";
 
-const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
-const clientSecret = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
-const refresh_token = process.env.REACT_APP_SPOTIFY_REFRESH_TOKEN; // must be spelled as "refresh_token"
+const clientId = process.env.SPOTIFY_CLIENT_ID;
+const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
+const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN; // must be spelled as "refresh_token"
 
 const basic = btoa(`${clientId}:${clientSecret}`);
 
