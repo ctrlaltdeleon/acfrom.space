@@ -1,5 +1,5 @@
 import {
-  MY_STACK_OVERFLOW_ID,
+  MY_USERNAME,
   SECONDS_OF_FRESHNESS,
   SECONDS_OF_REVALIDATION,
 } from "../../lib/utils";
@@ -12,7 +12,7 @@ export const config = {
 
 export default async function handler(req: NextRequest) {
   const response = await fetch(
-    `https://api.stackexchange.com/2.3/users/${MY_STACK_OVERFLOW_ID}?order=desc&sort=reputation&site=stackoverflow`,
+    `https://api.stackexchange.com/2.3/users?order=desc&sort=reputation&inname=${MY_USERNAME}&site=stackoverflow`,
     {
       method: "GET",
     }
